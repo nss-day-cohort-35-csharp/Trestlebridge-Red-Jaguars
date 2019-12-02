@@ -16,12 +16,16 @@ namespace Trestlebridge.Actions
             Console.WriteLine("4. Goat");
             Console.WriteLine("5. Sheep");
             Console.WriteLine("6. Chicken");
+            Console.WriteLine("7. Duck");
 
             Console.WriteLine();
             Console.WriteLine("What are you buying today?");
 
             Console.Write("> ");
             string choice = Console.ReadLine();
+
+            try 
+            {
 
             switch (Int32.Parse(choice))
             {
@@ -43,9 +47,16 @@ namespace Trestlebridge.Actions
                 case 6:
                     ChooseChickenHouse.CollectInput(farm, new Chicken());
                     break;
+                case 7:
+                    ChooseDuckHouse.CollectInput(farm, new Duck());
+                    break;
 
                 default:
                     break;
+            }
+            } catch {
+                Console.WriteLine("Incorrect Input, please hit any key to return to main menu");
+                // Console.ReadLine();
             }
         }
     }
