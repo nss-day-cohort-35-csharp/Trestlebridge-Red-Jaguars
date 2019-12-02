@@ -20,6 +20,10 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public int AnimalsInFacility()
+        {
+            return _animals.Count;
+        }
         public void AddResource(IGrazing animal)
         {
             // TODO: implement this...
