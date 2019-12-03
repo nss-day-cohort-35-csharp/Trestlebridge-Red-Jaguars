@@ -11,24 +11,20 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm, IDualProducing plant)
         {
             Utils.Clear();
-
-            for (int i = 0; i < farm.NaturalFields.Count; i++)
+                var filterNaturalFields = farm.NaturalFields.Where(field => field.IsSpaceAvailable() > 0).ToList();
+            for (int i = 0; i < filterNaturalFields.Count; i++)
             {
-                if (farm.NaturalFields[i].IsSpaceAvailable() > 0)
-                {
-                    Console.WriteLine($"{i + 1}. Natural Field ({farm.NaturalFields[i].PlantsInFacility()} Plant(s) in the field)");
-                    farm.NaturalFields[i].PlantsGroups();
-                }
+                Console.WriteLine($"{i + 1}. Natural Field ({filterNaturalFields[i].PlantsInFacility()} Plant(s) in the field)");
+                    filterNaturalFields[i].PlantsGroups();
+                
 
             }
-
-            for (int i = 0; i < farm.PlowedFields.Count; i++)
+            var filterPlowedField = farm.PlowedFields.Where(field => field.IsSpaceAvailable() > 0).ToList();
+            for (int i = 0; i < filterPlowedField.Count; i++)
             {
-                if (farm.PlowedFields[i].IsSpaceAvailable() > 0)
-                {
-                    Console.WriteLine($"{i + 1 + farm.NaturalFields.Count}. Plowed Field ({farm.PlowedFields[i].PlantsInFacility()} Plant(s) in the field)");
-                    farm.PlowedFields[i].PlantsGroups();
-                }
+                Console.WriteLine($"{i + 1 + filterNaturalFields.Count}. Plowed Field ({filterPlowedField[i].PlantsInFacility()} Plant(s) in the field)");
+                    filterPlowedField[i].PlantsGroups();
+                
 
             }
 
@@ -40,13 +36,13 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            if (choice < farm.NaturalFields.Count)
+            if (choice <filterNaturalFields.Count)
             {
-                farm.NaturalFields[--choice].AddResource(new Sunflower());
+               filterNaturalFields[--choice].AddResource(new Sunflower());
             }
             else
             {
-                farm.PlowedFields[--choice - farm.NaturalFields.Count].AddResource(new Sunflower());
+               filterPlowedField[--choice -filterNaturalFields.Count].AddResource(new Sunflower());
             }
 
             /*

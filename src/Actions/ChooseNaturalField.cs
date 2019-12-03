@@ -1,9 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Plants;
-
 namespace Trestlebridge.Actions
 {
     public class ChooseNaturalField
@@ -11,14 +11,13 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm, ICompostProducing plant)
         {
             Utils.Clear();
-
-            for (int i = 0; i < farm.NaturalFields.Count; i++)
+            var filterNaturalField = farm.NaturalFields.Where(field => field.IsSpaceAvailable() > 0).ToList();
+            for (int i = 0; i < filterNaturalField.Count(); i++)
             {
-                if (farm.NaturalFields[i].IsSpaceAvailable() > 0)
-                {
-                    Console.WriteLine($"{i + 1}. Natural Field ({farm.NaturalFields[i].PlantsInFacility()} Plant(s) in the fields)");
-                    farm.NaturalFields[i].PlantsGroups();
-                }
+
+                Console.WriteLine($"{i + 1}. Natural Field ({filterNaturalField[i].PlantsInFacility()} Plant(s) in the fields)");
+                filterNaturalField[i].PlantsGroups();
+
             }
 
             Console.WriteLine();
@@ -29,7 +28,7 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            farm.NaturalFields[choice - 1].AddResource(plant);
+            filterNaturalField[choice - 1].AddResource(plant);
 
             /*
                 Couldn't get this to work. Can you?

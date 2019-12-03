@@ -11,14 +11,13 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm, IGrazing animal)
         {
             Utils.Clear();
-
+    var filterGrazingField = farm.GrazingFields.Where(field => field.IsSpaceAvailable() > 0).ToList();
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-                if (farm.GrazingFields[i].IsSpaceAvailable() > 0)
-                {
-                    Console.WriteLine($"{i + 1}. Grazing Field ({farm.GrazingFields[i].AnimalsInFacility()} Animal(s) in the fields)");
-                    farm.GrazingFields[i].AnimalGroups();
-                }
+           
+                    Console.WriteLine($"{i + 1}. Grazing Field ({filterGrazingField[i].AnimalsInFacility()} Animal(s) in the fields)");
+                    filterGrazingField[i].AnimalGroups();
+        
             }
 
             Console.WriteLine();
@@ -29,7 +28,7 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            farm.GrazingFields[choice - 1].AddResource(animal);
+            filterGrazingField[choice - 1].AddResource(animal);
 
             /*
                 Couldn't get this to work. Can you?
