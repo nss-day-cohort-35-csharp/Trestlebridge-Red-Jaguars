@@ -32,9 +32,9 @@ namespace Trestlebridge.Actions
                 case 2:
                     ChoosePlowedField.CollectInput(farm, new Sesame());
                     break;
-                /*case 3:
-                    ChooseNaturalField.CollectInput(farm, new Sunflower());
-                    break;*/
+                case 3:
+                    ChooseDualField.CollectInput(farm, new Sunflower());
+                    break;
 
                 default:
                     break;

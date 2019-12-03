@@ -14,6 +14,7 @@ namespace Trestlebridge.Models
         public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
         public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
+        public List<IDualProducing> AllPlantFields { get; } = new List<IDualProducing>();
 
         /*
             This method must specify the correct product interface of the
