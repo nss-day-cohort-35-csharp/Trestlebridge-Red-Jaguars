@@ -21,7 +21,7 @@ namespace Trestlebridge.Models
             resource being purchased.
          */
 
-         //will be used in the future to add generic resources
+        //will be used in the future to add generic resources
 
         // public void PurchaseResource<T>(IResource resource, int index)
         // {

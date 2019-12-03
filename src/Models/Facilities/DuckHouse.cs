@@ -6,7 +6,7 @@ using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Animals;
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse 
+    public class DuckHouse
     {
         private int _capacity = 20;
         private Guid _id = Guid.NewGuid();
@@ -20,7 +20,10 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-
+        public int IsSpaceAvailable()
+        {
+            return _capacity - _animals.Count;
+        }
         public int AnimalsInFacility()
         {
             return _animals.Count;

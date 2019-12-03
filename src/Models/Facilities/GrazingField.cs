@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class GrazingField : IFacility<IGrazing>
     {
-        private int _capacity = 20;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
@@ -34,6 +34,11 @@ namespace Trestlebridge.Models.Facilities
                 Console.WriteLine($"This field has {group.Count()} {group.Key}(s)");
             }
 
+        }
+
+        public int IsSpaceAvailable()
+        {
+            return _capacity - _animals.Count;
         }
         public void AddResource(IGrazing animal)
         {

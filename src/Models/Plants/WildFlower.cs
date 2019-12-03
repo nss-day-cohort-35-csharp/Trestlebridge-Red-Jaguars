@@ -8,12 +8,14 @@ namespace Trestlebridge.Models.Plants
         private double _compostProduced = 30.3;
         public string Type { get; } = "WildFlower";
 
-        public double Farmer () {
+        public double Farmer()
+        {
             return _compostProduced;
         }
 
-        public override string ToString () {
-            return $"WildFlower. Cows - Yum!";
+        public override string ToString()
+        {
+            return $"WildFlower. Pretty!";
         }
     }
 }

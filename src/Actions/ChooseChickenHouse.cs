@@ -14,8 +14,11 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.ChickenHouses.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Chicken House ({farm.ChickenHouses[i].AnimalsInFacility()} Chicken(s) in the house)");
-                // farm.ChickenHouses[i].AnimalGroups();
+                if (farm.ChickenHouses[i].IsSpaceAvailable() > 0)
+                {
+                    Console.WriteLine($"{i + 1}. Chicken House ({farm.ChickenHouses[i].AnimalsInFacility()} Chicken(s) in the house)");
+                    // farm.ChickenHouses[i].AnimalGroups();
+                }
             }
 
             Console.WriteLine();
