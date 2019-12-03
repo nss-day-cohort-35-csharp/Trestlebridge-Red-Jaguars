@@ -27,6 +27,10 @@ namespace Trestlebridge.Actions
                     farm.AddGrazingField(new GrazingField());
 
                     break;
+                case 2:
+                    farm.AddPlowedField(new PlowedField());
+
+                    break;
                 case 3:
                     farm.AddChickenHouse(new ChickenHouse());
 
@@ -35,6 +39,7 @@ namespace Trestlebridge.Actions
                     farm.AddDuckHouse(new DuckHouse());
 
                     break;
+                
                 default:
                     break;
             }
