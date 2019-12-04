@@ -2,6 +2,8 @@ using System;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Facilities;
+using Trestlebridge.Models.Processors;
+
 
 namespace Trestlebridge.Actions
 {
@@ -21,8 +23,8 @@ namespace Trestlebridge.Actions
                 switch (Int32.Parse(input))
                 {
                     case 1:
-
-                        ChoosePlowedFieldForSeed.CollectInput(farm);
+                        SeedHarvester seedHarvester = new SeedHarvester();
+                        ChoosePlowedFieldForSeed.CollectInput(farm, seedHarvester);
                         break;
                     default:
                         break;

@@ -79,7 +79,6 @@ namespace Trestlebridge
                 {
                     DisplayBanner();
                     ChooseResource.CollectInput(Trestlebridge);
-                    break;
                 }
                 else if (option == "6")
                 {
