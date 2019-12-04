@@ -12,7 +12,7 @@ namespace Trestlebridge.Actions
         {
             Utils.Clear();
              var filterPlowedField = farm.PlowedFields.Where(field => field.IsSpaceAvailable() > 0).ToList();
-            for (int i = 0; i < farm.PlowedFields.Count; i++)
+            for (int i = 0; i < filterPlowedField.Count; i++)
             {
                 
                     Console.WriteLine($"{i + 1}. Plowed Field ({filterPlowedField[i].PlantsInFacility()} Plant(s) in the fields)");
