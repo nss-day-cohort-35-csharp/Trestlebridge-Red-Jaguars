@@ -8,7 +8,7 @@ namespace Trestlebridge.Actions
 {
     public class ChoosePlowedFieldForSeed
     {
-        public static void CollectInput(Farm farm, ISeedProducing plant)
+        public static void CollectInput(Farm farm)
         {
             Utils.Clear();
             var filterPlowedField = farm.PlowedFields.Where(field => field.PlantsInFacility() > 0).ToList();
@@ -27,21 +27,32 @@ namespace Trestlebridge.Actions
 
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
-
-            var selectedFacility = filterPlowedField[choice - 1];
-            for (int i = 0; i < selectedFacility._plants.Count; i++)
+            Utils.Clear();
+            Console.Write("Heres a list of plants in your chosen field");
+            Console.WriteLine();
+            var plantsInFacility = filterPlowedField[choice - 1]._plants;
+           var selectedFacilityGroup = plantsInFacility.GroupBy(g => g.Type).ToList();
+            foreach (var plant in selectedFacilityGroup)
             {
-                Console.WriteLine($"{i+1}. {selectedFacility._plants[i].Type} ");
-
+                Console.WriteLine($"This field has {plant.Count()} {plant.Key}(s)");
             }
+            // for (int i = 0; i < selectedFacility._plants.Count; i++)
+            // {
+            //     Console.WriteLine($"{i+1}. {selectedFacility._plants[i].Type} ");
+
+            // }
 
             Console.WriteLine();
 
             // How can I output the type of plant chosen here?
+
             Console.WriteLine($"What plant to process?");
-             Console.Write("> ");
-            int plantChoice = Int32.Parse(Console.ReadLine()); 
-            
+            Console.Write("> ");
+            int plantChoice = Int32.Parse(Console.ReadLine());
+
+            plantChoice--;
+
+            plantsInFacility[plantChoice].Harvest();
 
             /*
                 Couldn't get this to work. Can you?

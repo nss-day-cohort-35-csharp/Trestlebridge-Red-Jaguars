@@ -10,25 +10,26 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm)
         {
             Console.WriteLine("1.Seed Harvester");
-           
-      
+
             Console.WriteLine();
             Console.WriteLine("Choose equipment to use");
 
             Console.Write("> ");
-            try 
+            try
             {
-            string input = Console.ReadLine();
-            switch (Int32.Parse(input))
-            {
-                case 1:
-                  
+                string input = Console.ReadLine();
+                switch (Int32.Parse(input))
+                {
+                    case 1:
 
-                    break;
-                default:
-                    break;
+                        ChoosePlowedFieldForSeed.CollectInput(farm);
+                        break;
+                    default:
+                        break;
+                }
             }
-            } catch {
+            catch
+            {
                 Console.WriteLine("Incorrect Input, please hit any key to return to main menu");
                 // Console.ReadLine();
             }
