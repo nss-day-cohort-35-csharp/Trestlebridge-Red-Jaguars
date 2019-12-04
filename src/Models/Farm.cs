@@ -87,6 +87,7 @@ namespace Trestlebridge.Models
             DuckHouses.ForEach(f => report.Append(f));
             PlowedFields.ForEach(f => report.Append(f));
             NaturalFields.ForEach(f => report.Append(f));
+            report.Append($"Total Seeds in storage is {processedSeeds}");
 
             return report.ToString();
         }

@@ -16,7 +16,10 @@ namespace Trestlebridge.Actions
             {
 
                 Utils.Clear();
+                
                 var filterPlowedField = farm.PlowedFields.Where(field => field.PlantsInFacility() > 0).ToList();
+                if (filterPlowedField.Count > 0)
+                {
                 for (int i = 0; i < filterPlowedField.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}. Plowed Field ({filterPlowedField[i].PlantsInFacility()} Plant(s) in the fields)");
@@ -78,8 +81,17 @@ namespace Trestlebridge.Actions
                     Console.ReadLine();
                     answer = "N";
                 }
-
+                } 
+                else {
+                    Console.WriteLine("no plants in field, processing everything in harvester");
+                    
+                    Console.ReadLine();
+                    answer= "N";
+                }
             } while (answer == "Y");
+
+            seedHarvester.Process(farm);
+
 
             //plantsInFacility[plantChoice].Harvest();
 
@@ -88,7 +100,7 @@ namespace Trestlebridge.Actions
                 Stretch goal. Only if the app is fully functional.
              */
             // farm.PurchaseResource<IPlowed>(plant, choice);
-
+            
         }
     }
 }
