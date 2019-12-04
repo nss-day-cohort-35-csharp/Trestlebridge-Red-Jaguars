@@ -36,7 +36,7 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            if (choice <filterNaturalFields.Count)
+            if (choice <= filterNaturalFields.Count)
             {
                filterNaturalFields[--choice].AddResource(new Sunflower());
             }

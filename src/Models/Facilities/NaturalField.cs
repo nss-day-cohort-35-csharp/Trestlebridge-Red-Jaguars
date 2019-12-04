@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class NaturalField : IFacility<ICompostProducing>
     {
-        private int _capacity = 2;
+        private int _capacity = 10;
         private Guid _id = Guid.NewGuid();
 
         private List<ICompostProducing> _plants = new List<ICompostProducing>();
@@ -44,11 +44,11 @@ namespace Trestlebridge.Models.Facilities
             // TODO: implement this...
             _plants.Add(plant);
         }
-        /*public void AddResource(IDualProducing plant)
-        {
-            // TODO: implement this...
-            _plants.Add(plant);
-        }*/
+        // public void AddResource(IDualProducing plant)
+        // {
+        //     // TODO: implement this...
+        //     _plants.Add(plant);
+        // }
 
         public void AddResource(List<ICompostProducing> plants)
         {
