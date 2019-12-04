@@ -2,6 +2,8 @@ using System;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Facilities;
+using Trestlebridge.Models.Processors;
+
 
 namespace Trestlebridge.Actions
 {
@@ -10,25 +12,26 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm)
         {
             Console.WriteLine("1.Seed Harvester");
-           
-      
+
             Console.WriteLine();
             Console.WriteLine("Choose equipment to use");
 
             Console.Write("> ");
-            try 
+            try
             {
-            string input = Console.ReadLine();
-            switch (Int32.Parse(input))
-            {
-                case 1:
-                  
-
-                    break;
-                default:
-                    break;
+                string input = Console.ReadLine();
+                switch (Int32.Parse(input))
+                {
+                    case 1:
+                        SeedHarvester seedHarvester = new SeedHarvester();
+                        ChoosePlowedFieldForSeed.CollectInput(farm, seedHarvester);
+                        break;
+                    default:
+                        break;
+                }
             }
-            } catch {
+            catch
+            {
                 Console.WriteLine("Incorrect Input, please hit any key to return to main menu");
                 // Console.ReadLine();
             }

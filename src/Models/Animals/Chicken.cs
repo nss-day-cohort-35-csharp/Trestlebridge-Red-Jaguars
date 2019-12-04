@@ -25,6 +25,9 @@ namespace Trestlebridge.Models.Animals {
         public double Butcher () {
             return _meatProduced;
         }
+        /*public double Process () {
+            return _meatProduced;
+        }*/
 
         public override string ToString () {
             return $"Chicken {this._shortId}. Cluck it up!";

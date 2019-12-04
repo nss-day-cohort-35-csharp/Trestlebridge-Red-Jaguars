@@ -11,7 +11,7 @@ namespace Trestlebridge.Models.Facilities
         private int _capacity = 20;
         private Guid _id = Guid.NewGuid();
 
-        private List<Duck> _animals = new List<Duck>();
+        public List<Duck> _animals = new List<Duck>();
 
         public double Capacity
         {

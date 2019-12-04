@@ -17,7 +17,7 @@ namespace Trestlebridge.Models
 
         // Processing equipment
 
-        public double processedSeeds { get; } = new double();
+        public double processedSeeds { get; set; }
 
         /*
             This method must specify the correct product interface of the
