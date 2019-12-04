@@ -30,8 +30,11 @@ namespace Trestlebridge.Models.Processors
         {
             foreach( var item in seedToProcess )
             {
-                //farm.processedSeeds += item.Harvest();
+                farm.processedSeeds += item.Harvest();
+                seedToProcess.Remove(item);
+                
             }
+            
         }
 
         public void AddResource(List<ISeedProducing> resources)
