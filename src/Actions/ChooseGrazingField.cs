@@ -12,7 +12,7 @@ namespace Trestlebridge.Actions
         {
             Utils.Clear();
     var filterGrazingField = farm.GrazingFields.Where(field => field.IsSpaceAvailable() > 0).ToList();
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            for (int i = 0; i < filterGrazingField.Count; i++)
             {
            
                     Console.WriteLine($"{i + 1}. Grazing Field ({filterGrazingField[i].AnimalsInFacility()} Animal(s) in the fields)");
