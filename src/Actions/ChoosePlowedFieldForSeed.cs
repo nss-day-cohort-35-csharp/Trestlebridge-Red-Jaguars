@@ -62,7 +62,7 @@ namespace Trestlebridge.Actions
                     Console.Write("> ");
                     int plantNumber = Int32.Parse(Console.ReadLine());
 
-                    if (seedHarvester.GetFreeCapacity() >= plantNumber)
+                    if ( (seedHarvester.GetFreeCapacity() >= plantNumber) && (selectedFacilityGroup[plantChoice].Count() >= plantNumber))
                     {
                         for (int i = 0; i < plantNumber; i++)
                         {
@@ -73,11 +73,10 @@ namespace Trestlebridge.Actions
                         }
                         Console.WriteLine("Do you want to add more? Y/N");
                         answer = Console.ReadLine();
-
                     }
                     else
                     {
-                        Console.WriteLine("No more space! Processing current resource.");
+                        Console.WriteLine("Incorrect input (capacity or plants number). Processing current resource.");
                         Console.ReadLine();
                         answer = "N";
                     }
@@ -85,11 +84,10 @@ namespace Trestlebridge.Actions
                 else
                 {
                     Console.WriteLine("no plants in field, processing everything in harvester");
-
                     Console.ReadLine();
                     answer = "N";
                 }
-            } while (answer == "Y");
+            } while (answer.ToUpper() == "Y");
 
             seedHarvester.Process(farm);
             Console.ReadLine();
