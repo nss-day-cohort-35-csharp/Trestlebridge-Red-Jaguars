@@ -8,11 +8,11 @@ using Trestlebridge.Models;
 
 namespace Trestlebridge.Models.Processors
 {
-    public class SeedHarvester : IFacility<ISeedProducing>
+    public class SeedHarvester// : IFacility<ISeedProducing>
     {
         public int _capacity {get;} = 5;
 
-        public double Capacity => throw new NotImplementedException();
+        //public double Capacity => throw new NotImplementedException();
 
         public List<ISeedProducing> seedToProcess= new List<ISeedProducing>();
 
@@ -28,13 +28,17 @@ namespace Trestlebridge.Models.Processors
 
         public void Process(Farm farm)
         {
+
+            double harvestedAmount = 0;
+
             foreach( var item in seedToProcess )
             {
                 farm.processedSeeds += item.Harvest();
-                seedToProcess.Remove(item);
-                
+                harvestedAmount += item.Harvest();
+                //seedToProcess.Remove(item);
             }
-            
+            seedToProcess.Clear();
+            Console.WriteLine($"{harvestedAmount} seeds processed.");
         }
 
         public void AddResource(List<ISeedProducing> resources)
