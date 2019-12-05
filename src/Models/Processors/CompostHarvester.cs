@@ -10,7 +10,7 @@ namespace Trestlebridge.Models.Processors
 {
     public class CompostHarvester// : IFacility<ICompostProducing>
     {
-        public int _capacity {get;} = 5;
+        public int _capacity {get;} = 8;
 
         //public double Capacity => throw new NotImplementedException();
 
