@@ -29,5 +29,10 @@ namespace Trestlebridge.Models.Animals {
         public override string ToString () {
             return $"Pig {this._shortId}. OINK OINK. IM achin' for some bacn'!";
         }
+
+        public double Feather()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

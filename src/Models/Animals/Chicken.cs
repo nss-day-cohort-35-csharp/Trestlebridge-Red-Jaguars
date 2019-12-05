@@ -7,6 +7,7 @@ namespace Trestlebridge.Models.Animals {
 
         private Guid _id = Guid.NewGuid();
         private double _meatProduced = 1.7;
+        private double _featherProduced = .5;
 
         private string _shortId {
             get {
@@ -24,6 +25,11 @@ namespace Trestlebridge.Models.Animals {
 
         public double Butcher () {
             return _meatProduced;
+            
+        }
+        public double Feather () {
+            return _featherProduced;
+            
         }
         /*public double Process () {
             return _meatProduced;
