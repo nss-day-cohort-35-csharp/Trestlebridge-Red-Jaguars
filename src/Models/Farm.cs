@@ -92,10 +92,10 @@ namespace Trestlebridge.Models
             DuckHouses.ForEach(f => report.Append(f));
             PlowedFields.ForEach(f => report.Append(f));
             NaturalFields.ForEach(f => report.Append(f));
-            report.Append($"Total Seeds in storage is {processedSeeds}\n");
-            report.Append($"Total Compost in storage is {processedCompost}\n");
-            report.Append($"Total Meat in storage is {processedAnimals}\n");
-            report.Append($"Total Feathers in storage is {processedFeathers}\n");
+            report.Append($"Total Seeds in storage is {processedSeeds}.\n");
+            report.Append($"Total Compost in storage is {processedCompost} kg.\n");
+            report.Append($"Total Meat in storage is {processedAnimals} kg.\n");
+            report.Append($"Total Feathers in storage is {processedFeathers} kg.\n");
 
             return report.ToString();
         }
