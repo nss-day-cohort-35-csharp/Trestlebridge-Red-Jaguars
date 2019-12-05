@@ -11,7 +11,8 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm)
         {
-            Console.WriteLine("1.Seed Harvester");
+            Console.WriteLine("1. Seed Harvester");
+            Console.WriteLine("2. Compost Harvester");
 
             Console.WriteLine();
             Console.WriteLine("Choose equipment to use");
@@ -25,6 +26,10 @@ namespace Trestlebridge.Actions
                     case 1:
                         SeedHarvester seedHarvester = new SeedHarvester();
                         ChoosePlowedFieldForSeed.CollectInput(farm, seedHarvester);
+                        break;
+                    case 2:
+                        CompostHarvester compostHarvester = new CompostHarvester();
+                        ChooseNaturalFieldForCompost.CollectInput(farm, compostHarvester);
                         break;
                     default:
                         break;

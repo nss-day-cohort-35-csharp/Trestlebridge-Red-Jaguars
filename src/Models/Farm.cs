@@ -18,6 +18,9 @@ namespace Trestlebridge.Models
         // Processing equipment
 
         public double processedSeeds { get; set; }
+        public double processedCompost { get; set; }
+
+
 
         /*
             This method must specify the correct product interface of the
@@ -88,6 +91,7 @@ namespace Trestlebridge.Models
             PlowedFields.ForEach(f => report.Append(f));
             NaturalFields.ForEach(f => report.Append(f));
             report.Append($"Total Seeds in storage is {processedSeeds}");
+            report.Append($"Total Compost in storage is {processedCompost}");
 
             return report.ToString();
         }
