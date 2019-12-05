@@ -19,6 +19,7 @@ namespace Trestlebridge.Models
 
         public double processedSeeds { get; set; }
         public double processedCompost { get; set; }
+        public double processedAnimals { get; set; }
 
 
 
